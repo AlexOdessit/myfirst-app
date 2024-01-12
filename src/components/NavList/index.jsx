@@ -1,10 +1,27 @@
 function NavList() {
   return (
-    <nav>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+    <nav className='nav-list'>
+      <ul className='main-menu'>
+        <li className='nav-item'>
+          <a className='nav-links' href=''>
+            1
+          </a>
+        </li>
+        <li className='nav-item'>
+          <a className='nav-links' href=''>
+            2
+          </a>
+        </li>
+        <li className='nav-item'>
+          <a className='nav-links' href=''>
+            3
+          </a>
+        </li>
+        <li className='nav-item'>
+          <a className='nav-links' href=''>
+            4
+          </a>
+        </li>
       </ul>
     </nav>
   );
