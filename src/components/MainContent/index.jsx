@@ -1,8 +1,9 @@
+
 function MainContent() {
   return (
     <main>
       <h2>Content heading</h2>
-      <p>rerewr3re3r</p>
+      <p>Lorem sdsadsdsdsa</p>
     </main>
   );
 }

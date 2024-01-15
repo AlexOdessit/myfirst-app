@@ -1,18 +1,7 @@
 .header {
-  padding: 10px;
-  background-color: #000;
+  padding: 20px;
+  background: lightgray;
+  border: 2px solid black;
   position: sticky;
-  color: #fff;
-}
-
-.main-menu {
-  display: flex;
-}
-
-.nav-item {
-  list-style-type: none;
-  padding-left: 10px;
-}
-.nav-links {
-  color: #fff;
+  top: 0;
 }

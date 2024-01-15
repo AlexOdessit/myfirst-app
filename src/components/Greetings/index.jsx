@@ -2,6 +2,7 @@ import React from 'react';
 
 class Greeting extends React.Component {
   render() {
+
     // console.log(this.props)
 
     // пропси - зовнішні дані які допомогають налаштувати компонент

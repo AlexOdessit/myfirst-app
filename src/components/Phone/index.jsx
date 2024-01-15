@@ -7,49 +7,31 @@ class Phone extends React.Component {
     // стан існує тільки у класових компонентів
     this.state = {
       isOn: false,
-      isPhoneShown: true,
-      phones: [
-        {
-          id: 0,
-          color: 'black',
-          price: 1599,
-        },
-        {
-          id: 0,
-          color: 'light',
-          price: 1099,
-        },
-        {
-          id: 0,
-          color: 'gold',
-          price: 20000,
-        },
-      ],
     };
 
     // прикрутили this
-    // this.handleToggleOn = this.handleToggleOn.bind(this);
+    this.handleToggleOn = this.handleToggleOn.bind(this);
   }
 
-  // handleToggleOn() {
-  //   // setState - метод який приймає об'єкт і зливає його з поточним станом
-  //   // після чого реакт робить повторний рендер
-  //   const stateChanges = {
-  //     isOn: true,
-  //   };
-  //   this.setState(stateChanges);
-  //   /*
-  //     доробити телефону кнопку вимикання,
-  //     при якій його стан має змінитися на off
-  //   */
-  // }
+  handleToggleOn() {
+    // setState - метод який приймає об'єкт і зливає його з поточним станом
+    // після чого реакт робить повторний рендер
+    const stateChanges = {
+      isOn: true,
+    };
+    this.setState(stateChanges);
+    /*
+      доробити телефону кнопку вимикання, 
+      при якій його стан має змінитися на off
+    */
+  }
 
   // this береться автоматично
-  // handleToggleOff = () => {
-  //   this.setState({
-  //     isOn: false,
-  //   });
-  // };
+  handleToggleOff = () => {
+    this.setState({
+      isOn: false,
+    });
+  };
 
   handleToggle = () => {
     const { isOn } = this.state;
@@ -60,16 +42,12 @@ class Phone extends React.Component {
   };
 
   render() {
-    const { color, price } = this.props;
+    const {
+      phone: { color, price, isFavorite, id },
+      toggleFavorite,
+      addToCart,
+    } = this.props;
     const { isOn } = this.state;
-
-    // let phoneStatus;
-
-    // if(phoneState === 'on') {
-    //   phoneStatus = <PhoneOnText />;
-    // } else {
-    //   phoneStatus = <PhoneOffText/>;
-    // }
 
     const phoneStatus = isOn ? <PhoneOnText /> : <PhoneOffText />;
 
@@ -79,21 +57,22 @@ class Phone extends React.Component {
       <div className={containerClass}>
         <p>Phone is {color}</p>
         <p>Phone price is {price}</p>
-        {phoneStatus} handleToggleOn(){' '}
-        {
-          // setState - метод який приймає об'єкт і зливає його з поточним станом
-          // після чого реакт робить повторний рендер
-          // const stateChanges = {
-          //   isOn: true,
-          // };
-          // this.setState(stateChanges   const phoneStatus = isOn ? <PhoneOnText /> : <PhoneOffText />;);
-          // /*
-          // доробити телефону кнопку вимикання,
-          // при якій його стан має змінитися на off
-        }
+        {phoneStatus}
+        {isFavorite && <p>Phone is favorite</p>}
         <button onClick={this.handleToggle}>
-          Switch {isOn ? 'on' : 'off'}
+          Switch {isOn ? 'off' : 'on'}
         </button>
+        {/* <button onClick={isOn ? this.handleToggleOff : this.handleToggleOn}>
+          Switch {isOn ? 'off' : 'on'} v2
+        </button> */}
+        <button
+          onClick={() => {
+            toggleFavorite(id);
+          }}
+        >
+          {isFavorite ? 'Remove from' : 'Make'} favorite
+        </button>
+        <button onClick={() => addToCart(id)}>Add to cart</button>
       </div>
     );
   }

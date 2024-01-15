@@ -1,22 +1,11 @@
-import Header from './components/Header';
-import MainContent from './components/MainContent';
-// import Greeting from './components/Greetings';
+import React from 'react';
 import './App.css';
-import TextElement from './components/TextElement';
-import Phone from './components/Phone';
-import UserCard, { user1, user2 } from './components/UserCard';
+import PhoneDashboard from './components/PhoneDashboard';
 
-function App() {
+function App(props) {
   return (
     <>
-      <Header />
-      <MainContent />
-
-      <TextElement text='Long lorem ipsum text' tooltip='this is title' />
-      <TextElement text='Other text' tooltip='other title' />
-      <Phone color='black' price={15999.99} />
-      <UserCard user={user1} />
-      <UserCard user={user2} />
+      <PhoneDashboard />
     </>
   );
 }
